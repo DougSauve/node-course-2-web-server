@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 4200;
+
 var app = express();
 
 //tell hbs we want to use partials (like header.hbs and footer.hbs)
@@ -59,6 +61,6 @@ app.get('/bad', (req, res) => {
 });
 
 //get express to listen for requests
-app.listen(4200, () => {
-  console.log("server is running at localhost:4200")
+app.listen(port, () => {
+  console.log(`server is up on port ${port}`);
 });
