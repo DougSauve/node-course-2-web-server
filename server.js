@@ -40,7 +40,7 @@ hbs.registerHelper('screamIt', (text) => {
   return text.toUpperCase();
 });
 
-//give express new pages to render, pass in a 'variables' object
+//give express new pages to render, pass in a 'variables' object. *res.render always looks in the views directory!
 app.get('/', (req, res) => {
   res.render('home.hbs', {
     pageTitle: 'Home Page',
@@ -53,6 +53,12 @@ app.get('/about', (req, res) => {
     pageTitle: 'About Page',
   });
 });
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: "Projects"
+  })
+})
 
 app.get('/bad', (req, res) => {
   res.send({
